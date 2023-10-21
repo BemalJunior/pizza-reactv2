@@ -1,29 +1,38 @@
-import Categories from './Components/Categories';
-import Header from './Components/Header';
-import PizzaBlock from './Components/PizzaBlock';
-import Sort from './Components/Sort';
-import './scss/app.scss';
-import pizzas from './assets/pizzas.json';
+import React from "react";
 
-console.log(pizzas)
+import Header from "./Components/Header";
+import "./scss/app.scss";
+import pizzas from "./assets/pizzas.json";
+import Home from "./pages/Home";
+import { NotFound } from "./pages/NotFound";
+import { Route, Routes } from "react-router-dom";
+import { Card } from "./pages/Card";
 
+console.log(pizzas);
 
 function App() {
+  const [searchValue, setSearchValue] = React.useState("")
+
+
+
   return (
     <div className="App">
       <div className="wrapper">
-        <Header />
+        <Header searchValue={searchValue} setSearchValue={setSearchValue} />
         <div className="content">
-          <div className="container">
-            <div className="content__top">
-              <Categories />
-              <Sort />
-            </div>
-            <h2 className="content__title">Все пиццы</h2>
-            <div className="content__items">
-              {pizzas.map((obj) => (<PizzaBlock {...obj}/>))}
-            </div>
-          </div>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Home
+                  searchValue={searchValue}
+                  setSearchValue={setSearchValue}
+                />
+              }
+            />
+            <Route path="/card" element={<Card />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
         </div>
       </div>
     </div>

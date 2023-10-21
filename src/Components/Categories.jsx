@@ -1,9 +1,7 @@
-/* eslint-disable no-lone-blocks */
-import React from 'react'
+import React from "react";
 
-
-function Categories() {
-  const [activeIndex, setActiveIndex] = React.useState(0)
+function Categories({ value, onChangeCategory }) {
+  // const [activeIndex, setActiveIndex] = React.useState(0);
 
   const category = [
     "Все",
@@ -14,19 +12,20 @@ function Categories() {
     "Закрытые",
   ];
 
-  const onClickCategory = (index) => {
-    setActiveIndex(index)
-  }
+  // const onClickCategory = (index) => {
+  //   setActiveIndex(index);
+  // };
 
   return (
     <div className="categories">
       <ul>
-        {category.map((value, index) => (
+        {category.map((categoryName, index) => (
           <li
-            onClick={() => onClickCategory(index)}
-            className={activeIndex === index ? "active" : ""}
+            key={index}
+            onClick={() => onChangeCategory(index)}
+            className={value === index ? "active" : ""}
           >
-            {value}
+            {categoryName}
           </li>
         ))}
       </ul>

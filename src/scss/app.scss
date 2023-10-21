@@ -1,7 +1,7 @@
-@import './variables';
-@import './libs/normalize';
+@import "./variables";
+@import "./libs/normalize";
 
-@import './components/all';
+@import "./components/all";
 
 body {
   background-color: $background;
@@ -50,8 +50,9 @@ body {
   &__items {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(1, 1fr);
-    grid-column-gap: 11px;
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 20px;
+    justify-items: center;
 
     @media (max-width: 1400px) {
       grid-template-columns: repeat(3, 1fr);
@@ -84,7 +85,7 @@ body {
       .sort {
         padding-left: 20px;
         b {
-          display: none;
+          // display: none;
         }
       }
     }

@@ -1,0 +1,19 @@
+.root {
+  text-align: center;
+}
+
+.button {
+  margin-top: 30px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 700;
+  outline: none;
+  border-radius: 30px;
+  border: 1px solid #eb5a1e;
+  background: #fff;
+
+  p {
+    padding: 11px 21px;
+    color: #eb5a1e;
+  }
+}

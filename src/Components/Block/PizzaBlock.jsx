@@ -1,10 +1,10 @@
-import {useState} from "react";
+import { useState } from "react";
 
-function PizzaBlock({title, price, imageUrl, sizes, types}) {
+function PizzaBlock({ title, price, imageUrl, sizes, types }) {
   const [pizzaCount, setPizzaCount] = useState(0);
-  const typeNames = ['Тонкое', 'Традиционное'];
+  const typeNames = ["Тонкое", "Традиционное"];
   const [typeActive, setTypeActive] = useState(0);
-  const [activeSize, setActiveSize] = useState(0)
+  const [activeSize, setActiveSize] = useState(0);
 
   const onClickAdd = () => {
     setPizzaCount(pizzaCount + 1);
@@ -12,30 +12,32 @@ function PizzaBlock({title, price, imageUrl, sizes, types}) {
 
   return (
     <div className="pizza-block">
-      <img
-        className="pizza-block__image"
-        src={imageUrl}
-        alt="Pizza"
-      />
+      <img className="pizza-block__image" src={imageUrl} alt="Pizza" />
       <h4 className="pizza-block__title">{title}</h4>
       <div className="pizza-block__selector">
         <ul>
-          {
-            types.map((typeId) => (
-              <li onClick={() => setTypeActive(typeId)}
-                  className={typeActive === typeId ? 'active' : ''}>{typeNames[typeId]}</li>
-            ))
-          }
+          {types.map((typeId) => (
+            <li
+              key={typeId}
+              onClick={() => setTypeActive(typeId)}
+              className={typeActive === typeId ? "active" : ""}
+            >
+              {typeNames[typeId]}
+            </li>
+          ))}
         </ul>
         <ul>
-          {
-            sizes.map((size, i) => (
-              <li onClick={() => setActiveSize(i)} className={activeSize === i ? 'active' : ''}>{size} см.</li>
-            ))
-          }
+          {sizes.map((size, i) => (
+            <li
+              key={size}
+              onClick={() => setActiveSize(i)}
+              className={activeSize === i ? "active" : ""}
+            >
+              {size} см.
+            </li>
+          ))}
         </ul>
       </div>
-      н
       <div className="pizza-block__bottom">
         <div className="pizza-block__price">от {price} ₽</div>
         <button
