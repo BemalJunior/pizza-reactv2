@@ -4,7 +4,7 @@ import { Search } from "./Search/Search";
 
 const titleHeader = "React Pizza";
 
-function Header({searchValue, setSearchValue}) {
+function Header() {
   return (
     <div className="header">
       <div className="container">
@@ -17,7 +17,7 @@ function Header({searchValue, setSearchValue}) {
             </div>
           </div>
         </Link>
-        <Search searchValue={searchValue} setSearchValue={setSearchValue} />
+        <Search />
         <div className="header__cart">
           <Link to="/card" className="button button--cart">
             <span>520 ₽</span>
