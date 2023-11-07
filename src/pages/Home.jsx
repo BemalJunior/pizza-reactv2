@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector, useDispatch } from "react-redux";
 
 import Categories from "../Components/Categories";
 import Sort from "../Components/Sort";
@@ -8,15 +9,26 @@ import { Pagination } from "../Components/Pagination/Pagination";
 import { SearchContext } from "../App";
 
 const Home = () => {
+  const categoryId = useSelector((state) => state.filter.categoryId)
+  console.log(categoryId)
+
+
   const { searchValue } = React.useContext(SearchContext);
   const [items, setItems] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
-  const [categoryId, setCategoryId] = React.useState(0);
+  // const [categoryId, setCategoryId] = React.useState(0);
   const [currentPage, setCurrentPage] = React.useState(1)
   const [sortType, setSortType] = React.useState({
     name: "популярности",
     sortProperty: "rating",
   });
+
+  const dispatch = useDispatch()
+
+  const onChangeCategory = (id) => {
+
+  }
+
   const search = searchValue ? `&search=${searchValue}` : "";
 
   const skeletons = [...new Array(6)].map((_, index) => (
@@ -52,7 +64,7 @@ const Home = () => {
       <div className="content__top">
         <Categories
           value={categoryId}
-          onChangeCategory={(i) => setCategoryId(i)}
+          onChangeCategory={onChangeCategory}
         />
         <Sort value={sortType} onChangeSort={(i) => setSortType(i)} />
       </div>

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import logoSvg from "../assets/img/pizza-logo.svg";
 import { Search } from "./Search/Search";
 
-const titleHeader = "React Pizza";
+const titleHeader = "Pizza";
 
 function Header() {
   return (
